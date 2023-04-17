@@ -1,3 +1,7 @@
 # recipe-app
 
-members : Ricardo, Darko, Ludo
+module-backend
+
+deadline:monday
+
+updated readme
