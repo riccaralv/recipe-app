@@ -16,9 +16,12 @@ mongoose
 app.use(express.json());
 
 // test connection
-app.get('/', (re, res) => {
+app.get('/', (req, res) => {
 	res.send('hello world');
 });
+
+//test route recipe
+app.get('/recipes', (req, res) => {});
 
 // running server
 app.listen(PORT, () => console.log('server is running on PORT', PORT));
