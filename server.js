@@ -16,7 +16,7 @@ mongoose
 app.use(express.json());
 
 // test connection
-app.get('/', (re, res) => {
+app.get('/', (req, res) => {
 	res.send('hello world');
 });
 
