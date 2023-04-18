@@ -8,17 +8,17 @@ const PORT = process.env.PORT || 3000;
 
 // connecting DB
 mongoose
-	.connect(process.env.URI)
-	.then(() => console.log('connected to DB'))
-	.catch((err) => console.log(err.message));
+  .connect(process.env.URI)
+  .then(() => console.log('Connection to DB done'))
+  .catch((err) => console.log(err.message));
 
 //Middlewares
 app.use(express.json());
 
 // test connection
 app.get('/', (re, res) => {
-	res.send('hello world');
+  res.send('hello world');
 });
 
 // running server
-app.listen(PORT, () => console.log('server is running on PORT', PORT));
+app.listen(PORT, () => console.log('Server is running on PORT', PORT));
