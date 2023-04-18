@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 // connecting DB
 mongoose
 	.connect(process.env.URI)
-	.then(() => console.log('connected to DB'))
+	.then(() => console.log('Connection to DB done'))
 	.catch((err) => console.log(err.message));
 
 //Middlewares
@@ -24,4 +24,4 @@ app.get('/', (req, res) => {
 app.get('/recipes', (req, res) => {});
 
 // running server
-app.listen(PORT, () => console.log('server is running on PORT', PORT));
+app.listen(PORT, () => console.log('Server is running on PORT', PORT));
