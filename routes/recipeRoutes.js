@@ -11,5 +11,8 @@ import {
 
 router.get('/', getAllRecipes);
 router.get('/:id', getSingleRecipe);
+router.post('/', addNewRecipe);
+router.patch('/:id', updateRecipe);
+router.delete('/:id', deleteRecipe);
 
 export default router;
