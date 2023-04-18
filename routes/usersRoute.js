@@ -1,11 +1,11 @@
 import express from 'express';
 import {
-  createNewUser,
-  deleteUser,
-  getAllUsers,
-  getSingleUser,
-  loginUser,
-  modifyUser,
+	createNewUser,
+	deleteUser,
+	getAllUsers,
+	getSingleUser,
+	loginUser,
+	modifyUser,
 } from '../controllers/usersControllers.js';
 
 const router = express.Router();
@@ -20,9 +20,12 @@ router.post('/', /*rules,*/ createNewUser);
 router.post('/login', loginUser);
 
 // VERIFYING TOKEN WITH REFRESH => "/users/refresh"
-router.get('/refresh', auth, (req, res) => {
-  res.json({ success: true, data: req.user });
-});
+router.get(
+	'/refresh',
+	/*auth,*/ (req, res) => {
+		res.json({ success: true, data: req.user });
+	}
+);
 
 // GET SINGLE USER => "/users/xxxxx"
 router.get('/:id', /*auth, isAdmin, */ getSingleUser);

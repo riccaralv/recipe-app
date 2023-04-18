@@ -2,7 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import usersRoute from './routes/usersRoute.js';
-import recipeRoute from './routes/recipeRoutes.js';
+import recipesRoute from './routes/recipesRoutes.js';
+import bookmarksRoute from './routes/bookmarksRoute.js';
 dotenv.config();
 
 // CREATE EXPRESS SERVER
@@ -19,10 +20,11 @@ mongoose
 
 // MIDDLEWARES
 app.use(express.json());
-app.use('/recipes', recipeRoute);
 
 // ROUTES
 app.use('/users', usersRoute);
+app.use('/recipes', recipesRoute);
+app.use('/bookmarks', bookmarksRoute);
 
 /**
  * Do we add photos of the recipes? If yes, we need 'read stream'
