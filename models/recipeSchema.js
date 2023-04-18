@@ -21,6 +21,6 @@ const recipeSchema = new Schema({
 	},
 });
 
-const RecipeCollection = model('recipes', recipeSchema);
+const RecipeCollection = model('recipe', recipeSchema);
 
 export default RecipeCollection;

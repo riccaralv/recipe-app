@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
 
+import recipeRoute from './routes/recipeRoutes.js';
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -21,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 //test route recipe
-app.get('/recipes', (req, res) => {});
+app.use('/recipes', recipeRoute);
 
 // running server
 app.listen(PORT, () => console.log('Server is running on PORT', PORT));
