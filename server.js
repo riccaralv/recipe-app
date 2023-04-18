@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import usersRoute from './routes/usersRoute.js';
+import recipeRoute from './routes/recipeRoutes.js';
 dotenv.config();
 
 // CREATE EXPRESS SERVER
@@ -12,17 +13,13 @@ const PORT = process.env.PORT || 3000;
 
 // MONGOOSE CONNECTION
 mongoose
-  .connect(process.env.URI)
-  .then(() => console.log('Connection to DB done'))
-  .catch((err) => console.log(err.message));
+	.connect(process.env.URI)
+	.then(() => console.log('Connection to DB done'))
+	.catch((err) => console.log(err.message));
 
 // MIDDLEWARES
 app.use(express.json());
-
-// test connection
-app.get('/', (req, res) => {
-  res.send('hello world');
-});
+app.use('/recipes', recipeRoute);
 
 // ROUTES
 app.use('/users', usersRoute);
