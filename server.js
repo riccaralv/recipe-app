@@ -1,29 +1,32 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import usersRoute from './routes/usersRoute.js';
+import recipeRoute from './routes/recipeRoutes.js';
 dotenv.config();
 
-import recipeRoute from './routes/recipeRoutes.js';
-
+// CREATE EXPRESS SERVER
 const app = express();
+
+// PORT SETTING
 const PORT = process.env.PORT || 3000;
 
-// connecting DB
+// MONGOOSE CONNECTION
 mongoose
 	.connect(process.env.URI)
 	.then(() => console.log('Connection to DB done'))
 	.catch((err) => console.log(err.message));
 
-//Middlewares
+// MIDDLEWARES
 app.use(express.json());
-
-// test connection
-app.get('/', (req, res) => {
-	res.send('hello world');
-});
-
-//test route recipe
 app.use('/recipes', recipeRoute);
 
-// running server
+// ROUTES
+app.use('/users', usersRoute);
+
+/**
+ * Do we add photos of the recipes? If yes, we need 'read stream'
+ */
+
+// RUNNING SERVER
 app.listen(PORT, () => console.log('Server is running on PORT', PORT));
