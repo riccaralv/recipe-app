@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import usersRoute from './routes/usersRoute.js';
 import recipesRoute from './routes/recipesRoutes.js';
 import bookmarksRoute from './routes/bookmarksRoute.js';
+import cors from 'cors';
 dotenv.config();
 
 // CREATE EXPRESS SERVER
@@ -17,6 +18,12 @@ mongoose
 	.connect(process.env.URI)
 	.then(() => console.log('Connection to DB done'))
 	.catch((err) => console.log(err.message));
+
+// connecting Backend / Frontend
+app.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+	next();
+});
 
 // MIDDLEWARES
 app.use(express.json());
