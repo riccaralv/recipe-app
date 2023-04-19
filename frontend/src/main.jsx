@@ -2,11 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
-import Container from './context/Container'
-import axios from 'axios'
+import { BrowserRouter } from "react-router-dom"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Container>
+  <BrowserRouter>
   <App/>
-  </Container>,
+  </BrowserRouter>,
 )

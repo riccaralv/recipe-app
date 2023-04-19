@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar.jsx';
+import NavBar from './components/Navbar';
 import HomePage from './components/HomePage.jsx';
 import RecipesPage from './components/RecipesPage.jsx';
 import RegisterPage from './components/RegisterPage.jsx';
