@@ -1,22 +1,44 @@
 import { Schema, model } from 'mongoose';
 
 const userSchema = new Schema({
-	firstName: { type: String, required: true },
-	lastName: { type: String, required: true },
-	email: { type: String, required: true, unique: true },
-	password: { type: String, required: true },
-	status: {
-		type: String,
-		default: 'user',
-		// enum: ['user', 'admin'],
-		enum: ['user'],
-	},
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  status: {
+    type: String,
+    default: 'user',
+    // enum: ['user', 'admin'],
+    enum: ['user'],
+  },
+  /*
 	profileImage: {
 		type: String,
 		default: function () {
 			return `https://robohash.org/${this.firstName}`;
-		}, // Identiconizer!
+		}, 
 	},
+	*/
+  profileData: {
+    accessory: String,
+    body: String,
+    circleColor: String,
+    clothing: String,
+    clothingColor: String,
+    eyebrows: String,
+    eyes: String,
+    faceMask: Boolean,
+    faceMaskColor: String,
+    facialHair: String,
+    graphic: String,
+    hair: String,
+    hairColor: String,
+    hat: String,
+    hatColor: String,
+    lipColor: String,
+    mouth: String,
+    skinTone: String,
+  },
 });
 
 userSchema.indexes({ email: 1 });
