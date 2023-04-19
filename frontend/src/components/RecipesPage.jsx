@@ -23,7 +23,7 @@ function RecipesPage() {
 
 			{recipes.map((recipe) => {
 				return (
-					<div key={recipe.id}>
+					<div key={recipe._id}>
 						<h3>{recipe.Name}</h3>
 					</div>
 				);

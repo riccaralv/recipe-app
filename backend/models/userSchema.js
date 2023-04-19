@@ -11,34 +11,14 @@ const userSchema = new Schema({
     // enum: ['user', 'admin'],
     enum: ['user'],
   },
-  /*
 	profileImage: {
 		type: String,
 		default: function () {
 			return `https://robohash.org/${this.firstName}`;
 		}, 
 	},
-	*/
-  profileData: {
-    accessory: String,
-    body: String,
-    circleColor: String,
-    clothing: String,
-    clothingColor: String,
-    eyebrows: String,
-    eyes: String,
-    faceMask: Boolean,
-    faceMaskColor: String,
-    facialHair: String,
-    graphic: String,
-    hair: String,
-    hairColor: String,
-    hat: String,
-    hatColor: String,
-    lipColor: String,
-    mouth: String,
-    skinTone: String,
-  },
+	
+  
 });
 
 userSchema.indexes({ email: 1 });
