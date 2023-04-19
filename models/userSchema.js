@@ -24,4 +24,3 @@ userSchema.indexes({ email: 1 });
 const UserCollection = model('users', userSchema);
 
 export default UserCollection;
-
