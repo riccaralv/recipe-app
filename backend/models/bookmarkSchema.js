@@ -12,3 +12,6 @@ const bookmarkSchema = new Schema(
 const BookmarkedCollection = model('bookmarks', bookmarkSchema);
 
 export default BookmarkedCollection;
+
+
+
