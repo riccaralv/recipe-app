@@ -25,8 +25,12 @@ app.use((req, res, next) => {
 	next();
 });
 
+app.use(cors({origin:"http://localhost:5173", exposedHeaders:["token"]}))
+
 // MIDDLEWARES
 app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
 
 // ROUTES
 app.use('/users', usersRoute);
