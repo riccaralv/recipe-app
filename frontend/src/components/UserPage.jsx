@@ -66,7 +66,7 @@ export default function UserPage() {
 								<input
 									type="text"
 									name="recipe_author"
-									value={user.firstName}
+									value={user.firstName + (" ") + user.lastName}
 								/>
 								<br />
 								<label htmlFor="">Ingredients</label>
@@ -74,6 +74,7 @@ export default function UserPage() {
 									rows="10"
 									cols="25"
 									name="recipe_ingredients"
+                  placeholder='Put a space between the Ingredians'
 								/>
 								<br />
 								<label htmlFor="">Method</label>
