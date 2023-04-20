@@ -16,6 +16,11 @@ function RecipesPage() {
 				setRecipes(data.data);
 			});
 	}, []);
+
+	const bookmarkRecipe = (recipe) => {
+		console.log('click');
+	};
+
 	// render
 	return (
 		<div>
@@ -25,6 +30,9 @@ function RecipesPage() {
 				return (
 					<div key={recipe._id}>
 						<h3>{recipe.Name}</h3>
+						<button onClick={() => bookmarkRecipe(recipe)}>
+							Bookmark
+						</button>
 					</div>
 				);
 			})}
