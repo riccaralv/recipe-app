@@ -55,7 +55,6 @@ export default function UserPage() {
 	const addIngredient = (e) => {
 		e.preventDefault();
 		const newIngredient = document.getElementById('ingredient').value;
-		console.log(newIngredient);
 		setIngredients([...ingredients, newIngredient]);
 		document.getElementById('ingredient').value = '';
 	};
@@ -77,56 +76,75 @@ export default function UserPage() {
 							<h2>
 								{user.firstName} {user.lastName}
 							</h2>
-							<p> Create Recipe :</p>
-
-							<form onSubmit={createRecipe}>
-								<label htmlFor="">Recipe Name</label>
-								<input type="text" name="recipe_name" /> <br />
-								<label htmlFor="">Description</label>
-								<input type="text" name="recipe_description" />
-								<br />
-								<label htmlFor="">Author</label>
-								<input
-									type="text"
-									name="recipe_author"
-									value={user.firstName}
-								/>
-								<br />
-								{/* <label htmlFor=''>Ingredients</label>
+							<p>
+								<button onClick={showRecipeForm}>
+									Recipe section
+								</button>{' '}
+								{/* add the button */}
+							</p>
+							{showForm && (
+								<form onSubmit={createRecipe}>
+									<p> Create Recipe :</p>
+									<label htmlFor="">Recipe Name</label>
+									<input name="recipe_name" /> <br />
+									<label htmlFor="">Description</label>
+									<input
+										type="text"
+										name="recipe_description"
+									/>
+									<br />
+									<label htmlFor="">Author</label>
+									<input
+										type="text"
+										name="recipe_author"
+										value={user.firstName}
+									/>
+									<br />
+									{/* <label htmlFor=''>Ingredients</label>
                 <textarea rows='10' cols='25' name='recipe_ingredients' />
                 <br /> */}
-								{/*  */}
-								<label htmlFor="ingredient">Ingredient</label>
-								<input
-									type="text"
-									id="ingredient"
-									name="ingredient"
-								/>
-								<button type="button" onClick={addIngredient}>
-									+
-								</button>
-								<br />
-								<ol>
-									{ingredients.map((item, index) => {
-										return <li key={index}>{item}</li>;
-									})}
-								</ol>
-								{/*  */}
-								{/* <label htmlFor=''>Method</label>
+									{/*  */}
+									<label htmlFor="ingredient">
+										Ingredient
+									</label>
+									<input
+										type="text"
+										id="ingredient"
+										name="ingredient"
+									/>
+									<button
+										type="button"
+										onClick={addIngredient}
+									>
+										+
+									</button>
+									<br />
+									<ol>
+										{ingredients.map((item, index) => {
+											return <li key={index}>{item}</li>;
+										})}
+									</ol>
+									{/*  */}
+									{/* <label htmlFor=''>Method</label>
                 <textarea rows='10' cols='25' name='recipe_method' /> */}
-								<label htmlFor="method">Method</label>
-								<input type="text" id="method" name="method" />
-								<button type="button" onClick={addStep}>
-									+
-								</button>
-								<br />
-								<ol>
-									{method.map((item, index) => {
-										return <li key={index}>{item}</li>;
-									})}
-								</ol>
-								<button>Create Recipe</button>
-							</form>
+									<label htmlFor="method">Method</label>
+									<input
+										type="text"
+										id="method"
+										name="method"
+									/>
+									<button type="button" onClick={addStep}>
+										+
+									</button>
+									<br />
+									<ol>
+										{method.map((item, index) => {
+											return <li key={index}>{item}</li>;
+										})}
+									</ol>
+									<button>Create Recipe</button>
+								</form>
+							)}
 							{/* <h3>{user.email}</h3> */}
 							{/* <img src={user.profileImage} alt='' />  */}
 							<button onClick={logoutUser}>Logout</button>
