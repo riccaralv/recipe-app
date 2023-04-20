@@ -28,6 +28,11 @@ export default function UserPage() {
 		setUser(null);
 	};
 
+	const [showForm, setShowForm] = useState(false);
+	const showRecipeForm = () => {
+		setShowForm(!showForm);
+	};
+
 	const createRecipe = (e) => {
 		e.preventDefault();
 		console.log('click');
