@@ -5,27 +5,18 @@ import axios from 'axios';
 import { BigHead } from '@bigheads/core'; // npm install @bigheads/core --save
 
 export default function UserPage() {
-	const {
-		user,
-		setUser,
-		name,
-		setName,
-		description,
-		setDescription,
-		ingredients,
-		setIngredients,
-		method,
-		setMethod,
-	} = useContext(MyContext);
-
-	const [recipe, setRecipe] = useState({
-		Name: '',
-		Description: '',
-	});
+	const { user, setUser } = useContext(MyContext);
 
 	const logoutUser = () => {
 		localStorage.removeItem('token');
 		setUser(null);
+	};
+
+	const [ingredients, setIngredients] = useState([]);
+
+	const addIngredient = (e) => {
+		e.preventDefault();
+		console.log('click ingredient');
 	};
 
 	const createRecipe = (e) => {
@@ -69,19 +60,25 @@ export default function UserPage() {
 									value={user.firstName}
 								/>
 								<br />
-								<label htmlFor="">Ingredients</label>
-								<textarea
-									rows="10"
-									cols="25"
-									name="recipe_ingredients"
-								/>
+								<section>
+									<form onSubmit={addIngredient}>
+										<input
+											type="text"
+											name="recipe_ingredient"
+										/>
+										<input
+											type="submit"
+											value="add ingredient"
+										/>
+									</form>
+								</section>
 								<br />
-								<label htmlFor="">Method</label>
+								{/* <label htmlFor="">Method</label>
 								<textarea
 									rows="10"
 									cols="25"
 									name="recipe_method"
-								/>
+								/> */}
 								<button>Create Recipe</button>
 							</form>
 							{/* <h3>{user.email}</h3> */}
