@@ -28,6 +28,11 @@ export default function UserPage() {
     setUser(null);
   };
 
+  const [showForm, setShowForm] = useState(false);
+  const showRecipeForm = () => {
+    setShowForm(!showForm);
+  };
+
   const createRecipe = (e) => {
     e.preventDefault();
     console.log('click');
@@ -71,9 +76,12 @@ export default function UserPage() {
               <h2>
                 {user.firstName} {user.lastName}
               </h2>
-              <p> Create Recipe :</p>
-
+              <p>
+                <button onClick={showRecipeForm}>Recipe section</button> {/* add the button */}
+              </p>
+            {showForm && (
               <form onSubmit={createRecipe}>
+                <p> Create Recipe :</p>
                 <label htmlFor=''>Recipe Name</label>
                 <input name='recipe_name' /> <br />
                 <label htmlFor=''>Description</label>
@@ -94,7 +102,7 @@ export default function UserPage() {
                 <input type='text' id='ingredient' name='ingredient' />
                 <button type='button' onClick={addIngredient}>
                   +
-                </button>
+                </button><br />
                 {/*  */}
                 {/* <label htmlFor=''>Method</label>
                 <textarea rows='10' cols='25' name='recipe_method' /> */}
@@ -102,9 +110,9 @@ export default function UserPage() {
                 <input type='text' id='method' name='method' />
                 <button type='button' onClick={addStep}>
                   +
-                </button>
+                </button><br />
                 <button>Create Recipe</button>
-              </form>
+              </form>)}
               {/* <h3>{user.email}</h3> */}
               {/* <img src={user.profileImage} alt='' />  */}
               <button onClick={logoutUser}>Logout</button>
