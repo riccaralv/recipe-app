@@ -6,7 +6,7 @@ function NavBar() {
 	const { user } = useContext(MyContext);
 	return (
 		<nav>
-			<ul>
+			<ul className="navbar">
 				<li>
 					<NavLink to="/">Home</NavLink>
 				</li>
