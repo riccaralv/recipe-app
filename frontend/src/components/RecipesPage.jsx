@@ -9,7 +9,6 @@ const URL = 'http://localhost:3000/recipes';
 
 function RecipesPage() {
   // states
-  // const [recipes, setRecipes] = useState([]);
   const { recipes, setRecipes, bookmarks, setBookmarks } =
     useContext(MyContext);
 

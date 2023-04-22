@@ -3,7 +3,6 @@ import { MyContext } from '../context/Context';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Form.css';
-import RecipeForm from './RecipeForm.jsx';
 
 export default function UserPage() {
   const {
@@ -41,9 +40,7 @@ export default function UserPage() {
       Name: e.target.recipe_name.value,
       Description: e.target.recipe_description.value,
       Author: e.target.recipe_author.value,
-      //   Ingredients: e.target.recipe_ingredients.value.split(','),
       Ingredients: ingredients,
-      //   Method: e.target.recipe_method.value.split(','),
       Method: method,
     };
     console.log(recipe);
@@ -97,10 +94,6 @@ export default function UserPage() {
                       value={user.firstName}
                     />
                     <br />
-                    {/* <label htmlFor=''>Ingredients</label>
-                    <textarea rows='10' cols='25' name='recipe_ingredients' />
-                    <br /> */}
-                    {/*  */}
                     <label htmlFor='ingredient'>Ingredient</label>
                     <input type='text' id='ingredient' name='ingredient' />
                     <button type='button' onClick={addIngredient}>
@@ -112,9 +105,6 @@ export default function UserPage() {
                         return <li key={index}>{item}</li>;
                       })}
                     </ol>
-                    {/*  */}
-                    {/* <label htmlFor=''>Method</label>
-                    <textarea rows='10' cols='25' name='recipe_method' /> */}
                     <label htmlFor='method'>Method</label>
                     <input type='text' id='method' name='method' />
                     <button type='button' onClick={addStep}>
@@ -130,8 +120,6 @@ export default function UserPage() {
                   </form>
                 </div>
               )}
-              {/* <h3>{user.email}</h3> */}
-              {/* <img src={user.profileImage} alt='' />  */}
               <button onClick={logoutUser}>Logout</button>
             </>
           )}
